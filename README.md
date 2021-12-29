@@ -1,23 +1,33 @@
 # pyKeyBoard
 Writing something? Summary all! Generate something!<br>
 'pyKeyBoard' will be Records your computer input values by Keyboard typing.<br>
+<br>
+<br>
 
-- step1) Start 'pyKeyBoard' process, writting all by keyboard input.
-- step2) Press pattern or button(if makes gui).<br>
-  step2-1) Makes txt files, ex) pyKeyBoard_211229.txt<br> 
-  step2-2) Makes json format. ex) { "process_title": "[input, intput, input...]", "process_title": "[input, intput, input...]" }
-- step3) Summary analysis to json, makes summary result files(ex. txt...)<br>
-  In this step, we can use to 'bart' models. it can be more efficenty others.. <-- *need to check other models and compare
-- step4) Finds 'KeyWords' in summaries and Makes sentences to use 'GPT' models.<br>
+    1. Start 'pyKeyBoard' process, writting all by keyboard input.
+    2. Press pattern or button(if makes gui).<br>
+    3. Makes txt files, ex) pyKeyBoard_211229.txt<br> 
+    4. Makes json format. ex) { "process_title": "[input, intput, input...]", "process_title": "[input, intput, input...]" }
+    5. Summary analysis to json, makes summary result files(ex. txt...)<br>
+       In this step, we can use to 'bart' models. it can be more efficenty others.. <-- *need to check other models and compare
+    6. Finds 'KeyWords' in summaries and Makes sentences to use 'GPT' models.<br>
     
+<br>
+<br>
+
 ### Dev Story
 <details markdown="1">
 <summary>21.12.29 - *[Edit] README.md, *[Commit] main.py</summary>
-- First commit in this project. maybe next times, bug fixed and dev somethings.
+
+    noti)
+    - First commit in this project. maybe next times, bug fixed and dev somethings.
 
     fixed)
     - if i get to know about focus programs, i need to know about korean/english program status.. return
 </details>
+
+<br>
+<br>
 
 ### Todo Dev List
     1. consider about : process unit.. get hanFlag..? thinking about more efficiency solutions....
