@@ -65,7 +65,7 @@ def eng2kor(text):
         v = vc[i]
         t = text[i]
         j = 1
-        try:  # korea
+        try:  # korean
             if v == 'f' or v == 'c':  # f & c = cons
                 result += cons[t]
             elif v == 'V':  # double vowels
@@ -150,7 +150,6 @@ def get_present_process():
 def print_event_json(event):
     global chkHanguel
     chkHanguel = get_hanguel_state()
-
     if (d_all.count(get_present_process())):
         if (event.event_type == "up"):
             if (len(event.name) < 2):  # not shift, alt.. f1.. etc..
@@ -165,8 +164,20 @@ def print_event_json(event):
                         tmpStr = ''.join(korBuffer)
                         file.write(eng2kor(tmpStr))
                         korBuffer.clear()
+                elif(event.name == "backspace"):
+                    if (len(korBuffer) != 0):    # kor
+                        korBuffer.pop()
+                        pass
+                    else:       # eng
+                        file.flush()
+                        tmpFiles = open(tmpName, 'r', encoding='utf-8')
+                        file_content = tmpFiles.read()[:-1]
+                        tmpFiles.close()
+                        file.seek(0)
+                        file.truncate()
+                        file.write(file_content)
                 elif (event.name == "pause"):
-                    txt2jsonParsing('testKeyBoard_20211229.txt')
+                    txt2jsonParsing('testKeyBoard_20211229.txt')    # tmp
         elif (event.name == "f1"):
             if (len(korBuffer) != 0):
                 tmpStr = ''.join(korBuffer)
@@ -189,17 +200,17 @@ def print_event_json(event):
         d_all.append(get_present_process())
     sys.stdout.flush()
 
-'''
+
     if event.name:  # here are change source code encoding = 'utf-8'
         print('{{"process":"{}", "event_type": "{}", "name": "{}", "scan_code": {}, "time": {}}}'.format(get_present_process(), event.event_type, event.name,event.scan_code, event.time))
     else:
         print('{{"process":"{}", event_type": "{}", "scan_code": {}, "time": {}}}'.format(get_present_process(), event.event_type, event.scan_code, event.time))
-'''
+
 
 if __name__ == '__main__':
     dt_now = datetime.datetime.now()
     tmpName = 'testKeyBoard_%s%s%s.txt' % (dt_now.year, dt_now.month, dt_now.day)
-    file = open(tmpName, 'a', encoding='utf-8')
+    file = open(tmpName, 'a+', encoding='utf-8')
     #    txt2jsonParsing('testKeyBoard.txt')
     keyboard.hook(print_event_json)
     parse_event_json = lambda line: keyboard.KeyboardEvent(**json.loads(line))

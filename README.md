@@ -5,17 +5,28 @@ Writing something? Summary all! Generate something!<br>
 <br>
 
     1. Start 'pyKeyBoard' process, writting all by keyboard input.
-    2. Press pattern or button(if makes gui).<br>
-    3. Makes txt files, ex) pyKeyBoard_211229.txt<br> 
+    2. Press pattern or button(if makes gui).
+    3. Makes txt files, ex) pyKeyBoard_211229.txt 
     4. Makes json format. ex) { "process_title": "[input, intput, input...]", "process_title": "[input, intput, input...]" }
-    5. Summary analysis to json, makes summary result files(ex. txt...)<br>
+    5. Summary analysis to json, makes summary result files(ex. txt...)
        In this step, we can use to 'bart' models. it can be more efficenty others.. <-- *need to check other models and compare
-    6. Finds 'KeyWords' in summaries and Makes sentences to use 'GPT' models.<br>
+    6. Finds 'KeyWords' in summaries and Makes sentences to use 'GPT' models.
     
 <br>
 <br>
 
 ### Dev Story
+
+<details markdown="1">
+<summary>22.01.13 - *[Modify] main.py </summary>
+
+    noti)
+    - adjust backspace english, korean typing.
+
+    fixed)
+    - 10. backspace -> delete, pop[-1]
+</details>
+
 <details markdown="1">
 <summary>21.12.29 - *[Edit] README.md, *[Commit] main.py</summary>
 
@@ -40,7 +51,7 @@ Writing something? Summary all! Generate something!<br>
        this time checking utf8/unicode in korean. to used.. modules.. lib...
     8. interface. ~ing thread -> moving img..
     9. if saved completely, key, val += string -> need to convert 'json' preprocessing.
-    10. backspace -> delete, pop[-1]
+    (clear) 10. backspace -> delete, pop[-1] - 22.01.13
     11. key press 3,1times 'f10','f11' likes 'f10f10f10f11' -> To read testKeyBoard_%s.txt -> It makes to obj json [{ "key" : "val" }, { "key" : "val" }, ...]
     12. key press 3,1times 'f11','f12' likes 'f11f11f11f12' -> obj json -> to use pretrained bert Model.. -> output
     13. after preprocessing, adjust to BART, BERT.. to use content summary model
