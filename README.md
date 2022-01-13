@@ -13,7 +13,7 @@ Writing something? Summary all! Generate something!<br>
     6. Finds 'KeyWords' in summaries and Makes sentences to use 'GPT' models.
     
 <br>
-<br>
+
 
 ### Dev Story
 
@@ -63,9 +63,11 @@ Writing something? Summary all! Generate something!<br>
       what can i do something with program, text... logs..
       ** idea) to use BERT -> summary(), and next to extract keyword, it can use to 1~2 sentence generation. (likes GPT) -- so fun, enjoying.
       ** serious safety) login page id/pw need.. blocked version
-    
-    
+<br>
+<br>
 
+### Sample fixed.22.01.13
+![img.png](img/txt_sample.png)
      
 
    
