@@ -18,6 +18,16 @@ Writing something? Summary all! Generate something!<br>
 ### Dev Story
 
 <details markdown="1">
+<summary>22.01.17 - *[Modify] main.py </summary>
+
+    noti)
+    - delete repeat codes -> makes functions()
+
+    fixed)
+    - 1. consider about : process unit.. get hanFlag..? thinking about more efficiency solutions....
+</details>
+
+<details markdown="1">
 <summary>22.01.13 - *[Modify] main.py </summary>
 
     noti)
@@ -41,7 +51,7 @@ Writing something? Summary all! Generate something!<br>
 <br>
 
 ### Todo Dev List
-    1. consider about : process unit.. get hanFlag..? thinking about more efficiency solutions....
+    (clear) 1. consider about : process unit.. get hanFlag..? thinking about more efficiency solutions.... - 22.01.17
     2. eng/kor status logic. if make 1 sentence -> write() : more efficiency than now..
     3. json data structure.. to use 'bart' models
     4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1.

@@ -35,7 +35,6 @@ def get_hanguel_state():
     imm = ctypes.windll.LoadLibrary('imm32.dll')
     hWnd1 = lib.GetForegroundWindow()  # to get activated window handle
     hWnd2 = imm.ImmGetDefaultIMEWnd(hWnd1)
-
     status = win32api.SendMessage(hWnd2, win32con.WM_IME_CONTROL, 0x5, 0)
     lib.GetKeyState(VK_HANGUEL)
     if (status != 0):
@@ -147,6 +146,14 @@ def get_present_process():
     return buffer.value
 
 
+def korBuffChkWrite():
+    if (len(korBuffer) != 0):
+        tmpStr = ''.join(korBuffer)
+        file.write(eng2kor(tmpStr))
+        korBuffer.clear()
+    return
+
+
 def print_event_json(event):
     global chkHanguel
     chkHanguel = get_hanguel_state()
@@ -160,10 +167,7 @@ def print_event_json(event):
             else:
                 if (event.name == "space" or event.name == "enter"):
                     file.write(" ")
-                    if (len(korBuffer) != 0):
-                        tmpStr = ''.join(korBuffer)
-                        file.write(eng2kor(tmpStr))
-                        korBuffer.clear()
+                    korBuffChkWrite()
                 elif(event.name == "backspace"):
                     if (len(korBuffer) != 0):    # kor
                         korBuffer.pop()
@@ -179,18 +183,12 @@ def print_event_json(event):
                 elif (event.name == "pause"):
                     txt2jsonParsing('testKeyBoard_20211229.txt')    # tmp
         elif (event.name == "f1"):
-            if (len(korBuffer) != 0):
-                tmpStr = ''.join(korBuffer)
-                file.write(eng2kor(tmpStr))
-                korBuffer.clear()
+            korBuffChkWrite()
             file.close()
             print("close writing file.")
             exit()
     else:
-        if (len(korBuffer) != 0):
-            tmpStr = ''.join(korBuffer)
-            file.write(eng2kor(tmpStr))
-            korBuffer.clear()
+        korBuffChkWrite()
         file.write("\n\n")
         file.write("[")
         for i in get_present_process():
