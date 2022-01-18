@@ -18,6 +18,23 @@ Writing something? Summary all! Generate something!<br>
 ### Dev Story
 
 <details markdown="1">
+<summary>22.01.18 - *[Edit] README.md, *[Edit] main.py</summary>
+
+    noti)
+    - modify json format and clearly get to process title name. 
+    - so next time, need to thinking about how to use json format and adjust to 'bart' model.
+
+    fixed)
+    4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1. -> not adjust. complicated and not important. special key - 22.01.18
+    5. space, shift, ctrl.. at least space, backspace, enter to adjust code by unicode. adjust json format - 22.01.18
+    7. next to makes .json format. english / korean checked.. maybe utf-8 > unicode? this time checking utf8/unicode in korean. to used.. modules.. lib... - 22.01.18
+
+    add)
+    14. preprocessing about incoreect words.. delete.
+    15. thinking about how to use json format. learning bart model. and next step
+</details>
+
+<details markdown="1">
 <summary>22.01.17 - *[Modify] main.py </summary>
 
     noti)
@@ -54,17 +71,18 @@ Writing something? Summary all! Generate something!<br>
     (clear) 1. consider about : process unit.. get hanFlag..? thinking about more efficiency solutions.... - 22.01.17
     2. eng/kor status logic. if make 1 sentence -> write() : more efficiency than now..
     3. json data structure.. to use 'bart' models
-    4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1.
-    5. space, shift, ctrl.. at least space, backspace, enter to adjust code by unicode
+    (clear) 4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1. -> not adjust. complicated and not important. special key - 22.01.18
+    (clear) 5. space, shift, ctrl.. at least space, backspace, enter to adjust code by unicode. adjust json format - 22.01.18
     6. need to exit sequence... function (now key press 'f1')
-    7. next to makes .json format. english / korean checked.. maybe utf-8 > unicode? 
-       this time checking utf8/unicode in korean. to used.. modules.. lib...
+    (clear) 7. next to makes .json format. english / korean checked.. maybe utf-8 > unicode? this time checking utf8/unicode in korean. to used.. modules.. lib... - 22.01.18
     8. interface. ~ing thread -> moving img..
     9. if saved completely, key, val += string -> need to convert 'json' preprocessing.
     (clear) 10. backspace -> delete, pop[-1] - 22.01.13
     11. key press 3,1times 'f10','f11' likes 'f10f10f10f11' -> To read testKeyBoard_%s.txt -> It makes to obj json [{ "key" : "val" }, { "key" : "val" }, ...]
     12. key press 3,1times 'f11','f12' likes 'f11f11f11f12' -> obj json -> to use pretrained bert Model.. -> output
     13. after preprocessing, adjust to BART, BERT.. to use content summary model
+    14. preprocessing about incoreect words.. delete.
+    15. thinking about how to use json format. learning bart model. and next step 
 
     ### orinary consider about this 'pyKeyBoard' project.
       and then another function likes bert, lstm..
@@ -77,8 +95,11 @@ Writing something? Summary all! Generate something!<br>
 <br>
 
 ### Sample fixed.22.01.13
-![img.png](img/txt_sample.png)
-     
+![txt sample](img/txt_sample.png)
+
+
+### Sample json format.22.01.18
+![json sample](img/json_sample.jpg)
 
    
 

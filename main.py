@@ -129,8 +129,8 @@ def txt2jsonParsing(tmpName):
                         file_data[tmpKeyLine] = line
                         tmpKeyLine = ""
 
-        with open('test.json', 'w') as f:
-            json.dump(file_data, f, indent=4)
+        with open('test.json', 'w', encoding='UTF-8') as f:
+            json.dump(file_data, f, indent=4, ensure_ascii=False)
 
         print(file_data)
     return 'parsing complete'
@@ -181,7 +181,8 @@ def print_event_json(event):
                         file.truncate()
                         file.write(file_content)
                 elif (event.name == "pause"):
-                    txt2jsonParsing('testKeyBoard_20211229.txt')    # tmp
+                    # txt2jsonParsing(tmpName)    # tmp
+                    print("not yet adjust.. thinking constructure")
         elif (event.name == "f1"):
             korBuffChkWrite()
             file.close()
@@ -196,9 +197,7 @@ def print_event_json(event):
         file.write("]")
         file.write("\n")
         d_all.append(get_present_process())
-    sys.stdout.flush()
-
-
+#    sys.stdout.flush()
     if event.name:  # here are change source code encoding = 'utf-8'
         print('{{"process":"{}", "event_type": "{}", "name": "{}", "scan_code": {}, "time": {}}}'.format(get_present_process(), event.event_type, event.name,event.scan_code, event.time))
     else:
@@ -209,7 +208,7 @@ if __name__ == '__main__':
     dt_now = datetime.datetime.now()
     tmpName = 'testKeyBoard_%s%s%s.txt' % (dt_now.year, dt_now.month, dt_now.day)
     file = open(tmpName, 'a+', encoding='utf-8')
-    #    txt2jsonParsing('testKeyBoard.txt')
+#    txt2jsonParsing('samaple.txt')
     keyboard.hook(print_event_json)
     parse_event_json = lambda line: keyboard.KeyboardEvent(**json.loads(line))
     keyboard.play(parse_event_json(line) for line in fileinput.input())
