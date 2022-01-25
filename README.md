@@ -18,27 +18,21 @@ Writing something? Summary all! Generate something!<br>
 ### Dev Story
 
 <details markdown="1">
+<summary>22.01.25 - *[Edit] README.md, *[Edit] main.py</summary>
+
+    noti)
+    - plan to make pykeboard GUI construct
+
+    fixed)
+    9. if saved completely, key, val += string -> need to convert 'json' preprocessing. - 22.01.25
+</details>
+
+<details markdown="1">
 <summary>22.01.18 - *[Edit] README.md, *[Edit] main.py</summary>
 
     noti)
     - modify json format and clearly get to process title name. 
     - so next time, need to thinking about how to use json format and adjust to 'bart' model.
-
-    fixed)
-    4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1. -> not adjust. complicated and not important. special key - 22.01.18
-    5. space, shift, ctrl.. at least space, backspace, enter to adjust code by unicode. adjust json format - 22.01.18
-    7. next to makes .json format. english / korean checked.. maybe utf-8 > unicode? this time checking utf8/unicode in korean. to used.. modules.. lib... - 22.01.18
-
-    add)
-    14. preprocessing about incoreect words.. delete.
-    15. thinking about how to use json format. learning bart model. and next step
-</details>
-
-<details markdown="1">
-<summary>22.01.25 - *[Edit] README.md, *[Edit] main.py</summary>
-
-    noti)
-    - plan to make pykeboard GUI construct
 
     fixed)
     4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1. -> not adjust. complicated and not important. special key - 22.01.18
