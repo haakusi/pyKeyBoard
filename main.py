@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import fileinput
-import sys
 import keyboard
 import ctypes
 
@@ -88,7 +87,7 @@ def eng2kor(text):
     return join_jamos(result)
 
 
-def txt2jsonParsing(tmpName):
+def txt2json_parsing(tmpName):
     '''
         1. open file -> readlines if [-1] == ']' -> [liens.(' ', '').regex('-,|'),-2] -> key
         2. next lines until [-1] == ']', append value
@@ -146,7 +145,7 @@ def get_present_process():
     return buffer.value
 
 
-def korBuffChkWrite():
+def kor_buffer_chk_write():
     if (len(korBuffer) != 0):
         tmpStr = ''.join(korBuffer)
         file.write(eng2kor(tmpStr))
@@ -167,7 +166,7 @@ def print_event_json(event):
             else:
                 if (event.name == "space" or event.name == "enter"):
                     file.write(" ")
-                    korBuffChkWrite()
+                    kor_buffer_chk_write()
                 elif(event.name == "backspace"):
                     if (len(korBuffer) != 0):    # kor
                         korBuffer.pop()
@@ -181,15 +180,15 @@ def print_event_json(event):
                         file.truncate()
                         file.write(file_content)
                 elif (event.name == "pause"):
-                    # txt2jsonParsing(tmpName)    # tmp
+                    # txt2json_parsing(tmpName)    # tmp
                     print("not yet adjust.. thinking constructure")
         elif (event.name == "f1"):
-            korBuffChkWrite()
+            kor_buffer_chk_write()
             file.close()
             print("close writing file.")
             exit()
     else:
-        korBuffChkWrite()
+        kor_buffer_chk_write()
         file.write("\n\n")
         file.write("[")
         for i in get_present_process():
@@ -208,7 +207,7 @@ if __name__ == '__main__':
     dt_now = datetime.datetime.now()
     tmpName = 'testKeyBoard_%s%s%s.txt' % (dt_now.year, dt_now.month, dt_now.day)
     file = open(tmpName, 'a+', encoding='utf-8')
-#    txt2jsonParsing('samaple.txt')
+#    txt2json_parsing('samaple.txt')
     keyboard.hook(print_event_json)
     parse_event_json = lambda line: keyboard.KeyboardEvent(**json.loads(line))
     keyboard.play(parse_event_json(line) for line in fileinput.input())
