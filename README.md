@@ -18,6 +18,18 @@ Writing something? Summary all! Generate something!<br>
 ### Dev Story
 
 <details markdown="1">
+<summary>22.02.10 - *[Edit] README.md, *[Edit] main.py</summary>
+
+    noti)
+    - adjust to 'BART' model. 
+    - But! just ..shows limited performance. Because open pretrained KoBart Model. Need to set this pyKeyBoard modeling task..
+
+    fixed)
+    3. json data structure.. to use 'bart' models - 22.02.10
+    15. thinking about how to use json format. learning bart model. and next step - 22.02.10
+</details>
+
+<details markdown="1">
 <summary>22.01.25 - *[Edit] README.md, *[Edit] main.py</summary>
 
     noti)
@@ -80,7 +92,7 @@ Writing something? Summary all! Generate something!<br>
 ### Todo Dev List
     (clear) 1. consider about : process unit.. get hanFlag..? thinking about more efficiency solutions.... - 22.01.17
     2. eng/kor status logic. if make 1 sentence -> write() : more efficiency than now..
-    <undder GUI> 3. json data structure.. to use 'bart' models
+    (clear) 3. json data structure.. to use 'bart' models - 22.02.10
     (clear) 4. adjust special keys Shift, Ctrl.. key +@ : event type UP/DOWN to Check write only 1. -> not adjust. complicated and not important. special key - 22.01.18
     (clear) 5. space, shift, ctrl.. at least space, backspace, enter to adjust code by unicode. adjust json format - 22.01.18
     <undder GUI> 6. need to exit sequence... function (now key press 'f1')
@@ -92,7 +104,7 @@ Writing something? Summary all! Generate something!<br>
     <undder GUI> 12. key press 3,1times 'f11','f12' likes 'f11f11f11f12' -> obj json -> to use pretrained bert Model.. -> output
     <undder GUI> 13. after preprocessing, adjust to BART, BERT.. to use content summary model
     14. preprocessing about incoreect words.. delete.
-    15. thinking about how to use json format. learning bart model. and next step 
+    (clear) 15. thinking about how to use json format. learning bart model. and next step - 22.02.10 
 
     GUI(new) - 22.01.25
     1. make btn, UI.. stay top.. click.. abstract keyword.. summary.. generate.. all forms simple!
@@ -122,7 +134,8 @@ Writing something? Summary all! Generate something!<br>
 ![json sample](img/json_sample.jpg)
 
    
+### Sample adjust 'Bart' model.22.02.10
+![bart_sample](img/img.png)
 
-      
 
      

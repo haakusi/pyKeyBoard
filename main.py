@@ -11,6 +11,7 @@ import re
 import json
 from collections import OrderedDict
 from ctypes import wintypes
+from transformers import PreTrainedTokenizerFast, BartForConditionalGeneration
 
 wintypes.ULONG_PTR = wintypes.WPARAM
 
@@ -187,6 +188,23 @@ def print_event_json(event):
             file.close()
             print("close writing file.")
             exit()
+        elif (event.name == "f2"):
+            print("debug - start f2")
+            tokenizer = PreTrainedTokenizerFast.from_pretrained("ainize/kobart-news")
+            model = BartForConditionalGeneration.from_pretrained("ainize/kobart-news")
+            print("debug - after open model")
+            input_text = "아! ㅎㅎ 주소값으로 저도 넣고 싶은데 안되서 찾아보니가 그거 당연히 안되는건데? 라고 외국친구가 달아놓은게 있어서 더 찾다가 이게 뭔가 싶어서.. 하나로 퉁치고 리턴에 리턴을 주소로하는거여쭤봤어요!! 우선 크게! 중요한 부분은 아니여서 하다가 ㅋㅋ.. 결국 저도 값 그냥 넣어서 사용 했는데.. ㅋㅋㅋ.. 쥬륵.. 감사합니다! 그렇게 시간을 엄청 소비한..  맞습니다.!! 다시 저도 다른것들 이슈 처리하다가 주임님이 lib 처리해서 주시면 내재화 다시 시작하겠습니다. 옙 감사합니다!"
+            input_ids = tokenizer.encode(input_text, return_tensors="pt")
+            summary_text_ids = model.generate(
+                input_ids=input_ids,
+                bos_token_id=model.config.bos_token_id,
+                eos_token_id=model.config.eos_token_id,
+                length_penalty=2.0,
+                max_length=120,
+                min_length=20,
+                num_beams=4,
+            )
+            print(tokenizer.decode(summary_text_ids[0], skip_special_tokens=True))
     else:
         kor_buffer_chk_write()
         file.write("\n\n")
@@ -196,7 +214,7 @@ def print_event_json(event):
         file.write("]")
         file.write("\n")
         d_all.append(get_present_process())
-#    sys.stdout.flush()
+
     if event.name:  # here are change source code encoding = 'utf-8'
         print('{{"process":"{}", "event_type": "{}", "name": "{}", "scan_code": {}, "time": {}}}'.format(get_present_process(), event.event_type, event.name,event.scan_code, event.time))
     else:
